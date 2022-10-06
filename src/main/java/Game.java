@@ -7,13 +7,11 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.input.KeyStroke;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class Game {
-
+    private Position position;
     private Hero hero;
-
     private Screen screen;
     private int x = 10;
     private int y = 10;
