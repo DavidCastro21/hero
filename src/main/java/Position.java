@@ -1,14 +1,14 @@
 public class Position {
-    private Position position;
     private Hero hero;
     private int x = 10;
     private int y = 10;
 
     public Position(int x, int y){
-
+        this.x = x;
+        this.y = y;
     }
-    private void moveHero(){
-        hero.setPosition(position);
+    private void setPosition(){
+
     }
     public void setY(int y){
         this.y = this.y;
