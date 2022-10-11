@@ -3,17 +3,20 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Wall {
-
+public class Wall extends Element{
     private Position position;
-
-    public Wall(int x, int y) {
-        this.position = new Position(x,y);
+    public Wall(int x, int y){super(x,y);}
+    public void draw(TextGraphics screen) {
+        screen.setForegroundColor(TextColor.Factory.fromString("#333366"));
+        screen.enableModifiers(SGR.BOLD);
+        screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "#");
     }
+    @Override
+    public boolean equals(Object o){
+        if(o == null || this.getClass() != o.getClass()) return false;
 
-    public void draw(TextGraphics graphics) {
-        graphics.setForegroundColor(TextColor.Factory.fromString("#333366"));
-        graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "#");
+        return(this == o ||
+                this.getPosition().equals(((Wall) o).getPosition()));
+
     }
 }
